@@ -1,6 +1,15 @@
 def analyze_smoker(smoker_status):
-  if smoker_status == 1:
-    print("To lower your cost, you should consider quitting smoking.")
+    """
+    Analyzes the smoker status and provides a recommendation.
+
+    Parameters:
+    smoker_status (int): The smoker status of an individual. 1 represents a smoker, 0 represents a non-smoker.
+
+    Returns:
+    None
+    """
+    if smoker_status == 1:
+        print("To lower your cost, you should consider quitting smoking.")
 
 # Function to estimate insurance cost:
 def estimate_insurance_cost(name, age, sex, num_of_children, smoker):
