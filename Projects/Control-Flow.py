@@ -10,6 +10,8 @@ def analyze_smoker(smoker_status):
     """
     if smoker_status == 1:
         print("To lower your cost, you should consider quitting smoking.")
+    else:
+        print("Smoking is not an issue for you")
 
 # Function to estimate insurance cost:
 def estimate_insurance_cost(name, age, sex, num_of_children, smoker):
@@ -34,4 +36,4 @@ def estimate_insurance_cost(name, age, sex, num_of_children, smoker):
 keanu_insurance_cost = estimate_insurance_cost(name = 'Keanu', age = 29, sex = 1, num_of_children = 3, smoker = 1)
 
 # My estimate insurance cost
-my_insurance_cost = estimate_insurance_cost(name="Stefan", age=21, smoker=1, sex=1, num_of_children=0)
+my_insurance_cost = estimate_insurance_cost(name="Stefan", age=21, smoker=0, sex=1, num_of_children=0)
