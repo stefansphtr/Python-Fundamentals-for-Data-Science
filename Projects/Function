@@ -5,7 +5,7 @@ def calculate_insurance_cost(name, age, sex, bmi, num_of_children, smoker):
     return estimated_cost 
   
 # Calculate insurance cost for Maria
-maria_insurance_cost = calculate_insurance_cost(28, 0, 26.2, 3, 0)  
+maria_insurance_cost = calculate_insurance_cost("Maria", 28, 0, 26.2, 3, 0)  
 
 # Calculate insurance cost for Omar
-omar_insurance_cost = calculate_insurance_cost(35, 1, 22.2, 0, 1)
+omar_insurance_cost = calculate_insurance_cost(age=35, sex=1, smoker=1, bmi=22.2, name="Omar", num_of_children=0)
