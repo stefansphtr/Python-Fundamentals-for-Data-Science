@@ -17,7 +17,13 @@ def calculate_insurance_cost(age, sex, bmi, num_of_children, smoker, name="this 
     estimated_cost = 250 * age - 128 * sex + 370 * bmi + 425 * num_of_children + 2400 * smoker - 12500
     output_message = f"The estimated cost for {name} is: ${estimated_cost}."
     return output_message, estimated_cost 
-  
+
+# Create difference_insurance_cost
+def difference_insurance_cost(insurance_cost_1, insurance_cost_2):
+    difference_cost = insurance_cost_2 - insurance_cost_1
+    output_message = f"The difference in insurance cost is $ {difference_cost}"
+    return output_message, difference_cost
+
 # Calculate insurance cost for Maria
 maria_insurance_cost = calculate_insurance_cost(28, 0, 26.2, 3, 0, "Maria")  
 
