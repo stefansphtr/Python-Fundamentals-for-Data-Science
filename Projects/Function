@@ -1,4 +1,5 @@
 # Create calculate_insurance_cost
 def calculate_insurance_cost(age, sex, bmi, num_of_children, smoker):
-    insurance_cost = 250 * age - 128 * sex + 370 * bmi + 425 * num_of_children + 2400 * smoker - 12500
-    return insurance_cost 
+    estimated_cost = 250 * age - 128 * sex + 370 * bmi + 425 * num_of_children + 2400 * smoker - 12500
+    print(f"The estimated cost for this person is: ${estimated_cost}.")
+    return estimated_cost 
