@@ -1,5 +1,19 @@
 # Create calculate_insurance_cost
-def calculate_insurance_cost(name, age, sex, bmi, num_of_children, smoker):
+def calculate_insurance_cost(age, sex, bmi, num_of_children, smoker, name="this person" ):
+    """
+    Calculate the insurance cost based on the provided parameters
+
+    Parameters:
+        name (str): The name of the individuals, default to "this person"
+        age (int): The age of the indiciual in years
+        sex (int): The sex of the individual (0 for female, 1 for male)
+        bmi (float): The body mass index of the individual
+        num_of_children (int): The number of children the individual has
+        smoker (str): Indicates whether the individual is a smoker (0 for non-smoker, 1 for smoker)
+
+    Returns:
+        float: The estimated insurance cost for the individual
+    """
     estimated_cost = 250 * age - 128 * sex + 370 * bmi + 425 * num_of_children + 2400 * smoker - 12500
     print(f"The estimated cost for {name} is: ${estimated_cost}.")
     return estimated_cost 
