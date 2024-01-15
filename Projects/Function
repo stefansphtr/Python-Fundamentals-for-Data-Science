@@ -23,3 +23,6 @@ maria_insurance_cost = calculate_insurance_cost(28, 0, 26.2, 3, 0, "Maria")
 
 # Calculate insurance cost for Omar
 omar_insurance_cost = calculate_insurance_cost(age=35, sex=1, smoker=1, bmi=22.2, name="Omar", num_of_children=0)
+
+# Calculate my insurace cost
+my_insurance_cost = calculate_insurance_cost(sex=1, smoker=1, age=21, num_of_children=0, bmi=21, name="Stefan")
