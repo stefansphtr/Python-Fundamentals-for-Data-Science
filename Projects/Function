@@ -15,8 +15,8 @@ def calculate_insurance_cost(age, sex, bmi, num_of_children, smoker, name="this 
         float: The estimated insurance cost for the individual
     """
     estimated_cost = 250 * age - 128 * sex + 370 * bmi + 425 * num_of_children + 2400 * smoker - 12500
-    print(f"The estimated cost for {name} is: ${estimated_cost}.")
-    return estimated_cost 
+    output_message = f"The estimated cost for {name} is: ${estimated_cost}."
+    return output_message, estimated_cost 
   
 # Calculate insurance cost for Maria
 maria_insurance_cost = calculate_insurance_cost(28, 0, 26.2, 3, 0, "Maria")  
