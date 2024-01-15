@@ -20,6 +20,16 @@ def calculate_insurance_cost(age, sex, bmi, num_of_children, smoker, name="this 
 
 # Create difference_insurance_cost
 def difference_insurance_cost(insurance_cost_1, insurance_cost_2):
+    """
+    Calculates the difference in insurance cost between two values.
+
+    Parameters:
+    insurance_cost_1 (float): The first insurance cost.
+    insurance_cost_2 (float): The second insurance cost.
+
+    Returns:
+    tuple: A tuple containing the output message and the difference in insurance cost.
+    """
     difference_cost = insurance_cost_2 - insurance_cost_1
     output_message = f"The difference in insurance cost is $ {difference_cost}"
     return output_message, difference_cost
