@@ -42,3 +42,12 @@ omar_insurance_cost_message, omar_insurance_cost = calculate_insurance_cost(age=
 
 # Calculate my insurace cost
 my_insurance_cost_message, my_insurance_cost = calculate_insurance_cost(sex=1, smoker=1, age=21, num_of_children=0, bmi=21, name="Stefan")
+
+# Calculate difference in insurance cost
+diff = difference_insurance_cost(omar_insurance_cost, my_insurance_cost)
+
+# Print results
+print(diff)
+print(maria_insurance_cost_message)
+print(omar_insurance_cost_message)
+print(my_insurance_cost_message)
