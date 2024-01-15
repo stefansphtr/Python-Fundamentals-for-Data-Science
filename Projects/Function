@@ -6,3 +6,10 @@ def calculate_insurance_cost(age, sex, bmi, num_of_children, smoker):
   
 # Calculate insurance cost for Maria
 calculate_insurance_cost(28, 0, 26.2, 3, 0)
+
+# Initial variables for Omar
+age = 35
+sex = 1 
+bmi = 22.2
+num_of_children = 0
+smoker = 1  
