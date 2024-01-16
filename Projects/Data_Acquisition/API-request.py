@@ -17,3 +17,22 @@ r_json = r.json()
 
 print(f"\n This is the results of the data from all countries within the state of New York using .json(): \n {r_json}")
 
+"""
+Explanation:
+The `.text` attribute in the `requests` library in Python returns the response content in Unicode format.
+It's a raw string of the response body.
+
+On the other hand, the `.json()` method returns a Python dictionary or list that represents the parsed JSON data
+from the response body. 
+
+The advantage of using `.json()` over `.text` is that `.json()` converts the JSON response into a Python data structure
+(like a dictionary or a list), which makes it easier to interact with. You can access values in the response 
+by key or index, iterate over elements, and use other Python data structure operations.
+
+For example, 
+if the response is `{"key": "value"}`, with `.text` you would get a string `'{ "key": "value" }'`, 
+but with `.json()` you would get a Python dictionary `{'key': 'value'}`. Now you can access the value 
+with `response['key']`, which you couldn't do with the string.
+
+So, if you're working with JSON data, it's generally more convenient to use `.json()`.
+"""
