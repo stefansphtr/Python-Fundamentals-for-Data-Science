@@ -9,6 +9,17 @@ import requests
 url = 'https://api.census.gov/data/2020/acs/acs5?get=NAME,B08303_001E,B08303_013E&for=county:*&in=state:36'
 r = requests.get(url)
 
+# Check if the request was successful
+if r.status_code == 200:
+    print("Request was succesful")
+    # Check if the response is not empty
+    if r.text.strip():
+        r_json = r.json()
+    else:
+        print("The response is empty.")
+else:
+    print(f"Request failed with status code {r.status_code}. Response: {r.text}")
+
 r_text = r.text
 
 print(f"This is the results of the data from all countries within the state of New York using .text: \n {r_text}")
