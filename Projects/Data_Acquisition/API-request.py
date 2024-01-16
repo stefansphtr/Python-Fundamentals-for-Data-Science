@@ -15,7 +15,7 @@ print(f"This is the results of the data from all countries within the state of N
 
 r_json = r.json()
 
-print(f"\n This is the results of the data from all countries within the state of New York using .json(): \n {r_json}")
+print(f"\n This is the results of the data from all countries within the state of New York using .json(): \n {r_json} \n")
 
 """
 Explanation:
@@ -35,4 +35,19 @@ but with `.json()` you would get a Python dictionary `{'key': 'value'}`. Now you
 with `response['key']`, which you couldn't do with the string.
 
 So, if you're working with JSON data, it's generally more convenient to use `.json()`.
+"""
+
+# The difference between the two outputs is the type of data structure they represent.
+
+first_information = r_text[0]
+print(f"This is the first information from the .text: \n {first_information} \n")
+# Output: [ 
+
+first_information = r_json[0]
+print(f"This is the first information from the .json(): \n {first_information}")
+# Output: ['NAME', 'B08303_001E', 'B08303_013E', 'state', 'county']
+
+"""
+So, by using .json(), you can easily access, manipulate, 
+and analyze the data using Python's built-in list and dictionary operations.
 """
