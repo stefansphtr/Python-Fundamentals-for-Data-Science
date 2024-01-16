@@ -6,8 +6,8 @@ import requests
 
 # # Access decoded JSON data as Python object
 # print(f"This is the results if the data turns into the Python object using .json(): \n {r.json()}")
-
-r = requests.get('https://api.census.gov/data/2020/acs/acs5?get=NAME,B08303_001E,B08303_013E&for=county:*&in=state:36')
+url = 'https://api.census.gov/data/2020/acs/acs5?get=NAME,B08303_001E,B08303_013E&for=county:*&in=state:36'
+r = requests.get(url)
 
 r_text = r.text
 
