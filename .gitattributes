@@ -1,5 +1,8 @@
+# Apply the 'nbstripout' filter to Jupyter notebooks and Zeppelin notebooks
 *.ipynb filter=nbstripout
 *.zpln filter=nbstripout
 *.ipynb diff=ipynb
+
+# Ensure all .txt and .md files use LF (Line Feed) as the line ending
 *.txt text eol=lf
 *.md text eol=lf
