@@ -6,28 +6,32 @@ import seaborn as sns
 
 
 def choose_statistic(x, sample_stat_text):
-    # calculate mean if the text is "Mean"
-    if sample_stat_text == "Mean":
-        return np.mean(x)
-    # calculate minimum if the text is "Minimum"
-    elif sample_stat_text == "Minimum":
-        return np.min(x)
-    # calculate variance if the text is "Variance"
-    elif sample_stat_text == "Variance":
-        return np.var(x, ddof=1)
-    # calculate median if the text is "Median"
-    elif sample_stat_text == "Median":
-        return np.median(x)
-    # calculate mode if the text is "Mode"
-    elif sample_stat_text == "Mode":
-        return np.mode(x)
-    # calculate maximum if the text is "Maximum"
-    elif sample_stat_text == "Maximum":
-        return np.max(x)
-    # raise error if sample_stat_text is not "Mean", "Minimum", or "Variance"
-    else:
-        raise Exception('Make sure to input "Mean", "Minimum", or "Variance"')
+    """
+    Calculate the statistic based on the input text.
 
+    Parameters:
+    x (array-like): Input data
+    sample_stat_text (str): The statistic to calculate. Options are "Mean", "Minimum", "Variance", "Median", "Mode", "Maximum".
+
+    Returns:
+    float: The calculated statistic
+    """
+    # Dictionary mapping text to corresponding numpy function
+    stats_dict = {
+        "Mean" : np.mean,
+        "Minimum" : np.min,
+        "Variance" : np.var,
+        "Median" : np.median,
+        "Mode" : np.mode,
+        "Maximum" : np.max
+    }
+    
+    # Check if the input text is valid
+    if sample_stat_text not in stats_dict():
+        raise ValueError(f'Invalid input. Expected one of: {",".join(stats_dict.keys())}')
+    
+    # Calculate and return the statistic
+    return stats_dict[sample_stat_text](x)
 
 def population_distribution(population_data):
     # plot the population distribution
