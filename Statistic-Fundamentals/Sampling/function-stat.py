@@ -28,3 +28,26 @@ def population_distribution(population_data):
   plt.xlabel('')
   plt.show()
   plt.clf()
+  
+def sampling_distribution(population_data, samp_size, stat):
+  # list that will hold all the sample statistics
+  sample_stats = []
+  for i in range(500):
+    # get a random sample from the population of size samp_size
+    samp = np.random.choice(population_data, samp_size, replace = False)
+    # calculate the chosen statistic (mean, minimum, or variance) of the sample
+    sample_stat = choose_statistic(samp, stat)
+    # add sample_stat to the sample_stats list
+    sample_stats.append(sample_stat)
+  
+  pop_statistic = round(choose_statistic(population_data, stat),2)
+  # plot the sampling distribution
+  sns.histplot(sample_stats, stat='density')
+  # informative title for the sampling distribution
+  plt.title(f"Sampling Distribution of the {stat} \nMean of the Sample {stat}s: {round(np.mean(sample_stats), 2)} \n Population {stat}: {pop_statistic}")
+  plt.axvline(pop_statistic,color='g',linestyle='dashed', label=f'Population {stat}')
+  # plot the mean of the chosen sample statistic for the sampling distribution
+  plt.axvline(np.mean(sample_stats),color='orange',linestyle='dashed', label=f'Mean of the Sample {stat}s')
+  plt.legend()
+  plt.show()
+  plt.clf()
