@@ -15,7 +15,15 @@ def choose_statistic(x, sample_stat_text):
     # calculate variance if the text is "Variance"
     elif sample_stat_text == "Variance":
         return np.var(x, ddof=1)
-    # if you want to add an extra stat
+    # calculate median if the text is "Median"
+    elif sample_stat_text == "Median":
+        return np.median(x)
+    # calculate mode if the text is "Mode"
+    elif sample_stat_text == "Mode":
+        return np.mode(x)
+    # calculate maximum if the text is "Maximum"
+    elif sample_stat_text == "Maximum":
+        return np.max(x)
     # raise error if sample_stat_text is not "Mean", "Minimum", or "Variance"
     else:
         raise Exception('Make sure to input "Mean", "Minimum", or "Variance"')
