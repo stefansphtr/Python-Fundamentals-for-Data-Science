@@ -1,4 +1,4 @@
-from helper_functions import choose_statistic, population_distribution, sampling_distribution
+from function_stat import *
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,7 +6,7 @@ from scipy import stats
 import seaborn as sns
 
 # task 1: load in the spotify dataset
-spotify_data = pd.read_csv('spotify_data.csv')
+spotify_data = pd.read_csv('./Statistic-Fundamentals/Sampling/data/spotify_data.csv')
 # task 2: preview the dataset
 print(spotify_data.head())
 # task 3: select the relevant column
