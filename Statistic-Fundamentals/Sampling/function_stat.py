@@ -22,12 +22,12 @@ def choose_statistic(x, sample_stat_text):
         "Minimum" : np.min,
         "Variance" : np.var,
         "Median" : np.median,
-        "Mode" : np.mode,
+        "Mode" : np.mod,
         "Maximum" : np.max
     }
     
     # Check if the input text is valid
-    if sample_stat_text not in stats_dict():
+    if sample_stat_text not in stats_dict:
         raise ValueError(f'Invalid input. Expected one of: {",".join(stats_dict.keys())}')
     
     # Calculate and return the statistic
