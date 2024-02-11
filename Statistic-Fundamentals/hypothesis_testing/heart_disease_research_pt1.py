@@ -4,7 +4,7 @@ import numpy as np
 import scipy.stats as st
 
 # load data
-heart = pd.read_csv('heart_disease.csv')
+heart = pd.read_csv('./Statistic-Fundamentals/hypothesis_testing/data/heart_disease.csv')
 yes_hd = heart[heart.heart_disease == 'presence']
 no_hd = heart[heart.heart_disease == 'absence']
 
