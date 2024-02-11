@@ -81,7 +81,7 @@ def sampling_distribution(population_data, samp_size, stat):
 import numpy as np
 import scipy.stats as st
 
-def simulation_binomial_test(observed_successes, n, p):
+def simulation_binomial_test(observed_successes, n, p, alternative_hypothesis):
     """
     Perform a binomial test simulation.
 
@@ -89,23 +89,31 @@ def simulation_binomial_test(observed_successes, n, p):
     observed_successes (int): The number of observed successes.
     n (int): The number of trials.
     p (float): The hypothesized probability of success.
+    alternative_hypothesis (str): The alternative hypothesis ('less', 'greater', or 'two-sided').
 
     Returns:
     float: The p-value of the test.
     """
 
     # Generate the simulated null distribution
-    null_outcomes = [np.sum(np.random.choice(['y', 'n'], size=n, p=[p, 1-p]) == 'y') for _ in range(10000)]
+    null_outcomes = np.array([np.sum(np.random.choice(['y', 'n'], size=n, p=[p, 1-p]) == 'y') for _ in range(10000)])
 
-    # Calculate a one-sided p-value
-    p_value = np.mean(np.array(null_outcomes) <= observed_successes)
+    # Calculate a one-sided or two-sided p-value
+    if alternative_hypothesis == 'less':
+        p_value = np.mean(null_outcomes <= observed_successes)
+    elif alternative_hypothesis == 'greater':
+        p_value = np.mean(null_outcomes >= observed_successes)
+    elif alternative_hypothesis == 'two-sided':
+        p_value = 2 * min(np.mean(null_outcomes <= observed_successes), np.mean(null_outcomes >= observed_successes))
+    else:
+        raise ValueError("alternative_hypothesis must be 'less', 'greater', or 'two-sided'")
 
     # Return the p-value
     return p_value
 
 if __name__ == "__main__":
     # Test the result using simulation_binomial_test function
-    p_value_1 = simulation_binomial_test(45, 500, .1)
+    p_value_1 = simulation_binomial_test(45, 500, .1, alternative_hypothesis='less')
 
     # Test the result using binom_test function from scipy
     binom_result = st.binomtest(45, 500, .1, alternative='less')
