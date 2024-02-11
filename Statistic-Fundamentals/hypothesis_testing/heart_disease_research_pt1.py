@@ -79,7 +79,8 @@ print(f"The expected number of patient with a resting blood sugar above 120 mg/d
 # H0: The sample was drawn from a population where 8% of people have fbs > 120 mg/dl
 # H1: The sample was drawn from a population where more than 8% of people have fbs > 120 mg/dl
 
-pval = st.binom_test(x = num_high_fbs_patients, n = num_patients, p = 0.08, alternative='greater')
+binom_result = st.binomtest(k = num_high_fbs_patients, n = num_patients, p = 0.08, alternative='greater')
+pval = binom_result.pvalue
 print(f"The p-value from the binomial test is: {pval}")
 
 """
