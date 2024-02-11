@@ -76,3 +76,41 @@ def sampling_distribution(population_data, samp_size, stat):
     plt.legend()
     plt.show()
     plt.clf()
+
+# ---
+import numpy as np
+import scipy.stats as st
+
+def simulation_binomial_test(observed_successes, n, p):
+    """
+    Perform a binomial test simulation.
+
+    Parameters:
+    observed_successes (int): The number of observed successes.
+    n (int): The number of trials.
+    p (float): The hypothesized probability of success.
+
+    Returns:
+    float: The p-value of the test.
+    """
+
+    # Generate the simulated null distribution
+    null_outcomes = [np.sum(np.random.choice(['y', 'n'], size=n, p=[p, 1-p]) == 'y') for _ in range(10000)]
+
+    # Calculate a one-sided p-value
+    p_value = np.mean(np.array(null_outcomes) <= observed_successes)
+
+    # Return the p-value
+    return p_value
+
+if __name__ == "__main__":
+    # Test the result using simulation_binomial_test function
+    p_value_1 = simulation_binomial_test(45, 500, .1)
+
+    # Test the result using binom_test function from scipy
+    binom_result = st.binomtest(45, 500, .1, alternative='less')
+    p_value_2 = binom_result.pvalue
+
+    # Display the p-values
+    print(f"simulation p-value: {p_value_1}")
+    print(f"binom_test p-value: {p_value_2}")
